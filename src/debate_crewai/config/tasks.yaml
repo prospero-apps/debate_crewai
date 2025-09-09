@@ -1,17 +1,30 @@
-research_task:
+support:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    You are supporting the idea expressed in the topic: {topic}
+    Find very strong arguments in favor of it. Be extremely convincing and try to back your opinion on some examples if possible.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
-
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
-  expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
+    Your consise opinion on the discussed topic, presented as a short introduction (1-2 sentences) and the
+    arguments in favor of the idea expressed in the topic as a bulleted list, no more than 5-6 items. 
     Formatted as markdown without '```'
-  agent: reporting_analyst
+  agent: candidate
+  output_file: output/support.md
+
+oppose:
+  description: >
+    You are strongly opposing the idea expressed in the topic: {topic}
+    Find very strong arguments against it. Be extremely convincing and try to back your opinion on some examples if possible.
+  expected_output: >
+    Your consise opinion on the discussed topic, presented as a short introduction (1-2 sentences) and the
+    arguments against the idea expressed in the topic as a bulleted list, no more than 5-6 items.
+    Formatted as markdown without '```'
+  agent: candidate
+  output_file: output/oppose.md
+
+decide:
+  description: >
+    Weigh up the arguments presented by the candidates and decide which of them is more convincing.
+  expected_output: >
+    Your decision on which of the candidates is more convincing and won the debate and why.
+    Formatted as markdown without '```'
+  agent: judge
+  output_file: output/decide.md
